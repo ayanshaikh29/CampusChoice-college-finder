@@ -1,0 +1,25 @@
+Create table collage 
+	colleage id,colleage name ,city,collage reg id
+Craete table Marks
+	id,rollno,subject,marks
+				AUTOINCREAMENT
+
+hw 10 july
+CREATE FUNCTION FOR ALL:
+1.Count total no of char in string.
+2. To check no is even or odd.
+3. Find Monthname from Date.
+
+11JULY
+1. Create table Custregistration[Note: AS per given Columns]
+2.Create table sales,purchase,Expenses
+3.create seperate SP to get all table data
+4.Create SP To Upadte data as per user
+5.Craete SP to delete as per User
+6.Get Totalsales Amount,TotalPurcahse using Ouput Parameter
+
+14 JULY
+1.Create trigger to backup marks table on delete
+2.create sp(store procedure) to update collage data take collegeid as input parameter
+3.create trigger to insert marks data(marks - 50 ,subject- English) on insertion of student data
+

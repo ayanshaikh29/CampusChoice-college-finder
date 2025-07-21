@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CampusChoice | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- 🔵 Header -->
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="CampusChoice Logo" class="logo-img">
+            <span class="logo-text">CampusChoice</span>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="#">News</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+
+    <!-- 🔶 Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find the Right College for You</h1>
+            <p>Discover the best colleges based on your stream, city, and cutoff percentage.</p>
+        </div>
+    </section>
+
+    <!-- 🔳 Info Blocks Section -->
+    <section class="info-blocks">
+        <div class="row top-row">
+            <div class="info-card">
+                <img src="{{ url_for('static', filename='eng.jpg') }}" alt="Block 1">
+                <div class="card-text">
+                    <span class="category">Engineering</span>
+                    <h3>Top Engineering Colleges</h3>
+                </div>
+            </div>
+            <div class="info-card">
+                <img src="{{ url_for('static', filename='dip.jpg') }}" alt="Block 2">
+                <div class="card-text">
+                    <span class="category">Diploma</span>
+                    <h3>Best Diploma Colleges</h3>
+                </div>
+            </div>
+            <div class="info-card">
+                <img src="{{ url_for('static', filename='sci.jpg') }}" alt="Block 3">
+                <div class="card-text">
+                    <span class="category">Science</span>
+                    <h3>Science Colleges You Should Know</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bottom-row">
+            <div class="info-card">
+                <img src="{{ url_for('static', filename='com.jpg') }}" alt="Block 4">
+                <div class="card-text">
+                    <span class="category">Commerce</span>
+                    <h3>Top Commerce Institutes</h3>
+                </div>
+            </div>
+            <div class="info-card">
+                <img src="{{ url_for('static', filename='arts.jpg') }}" alt="Block 5">
+                <div class="card-text">
+                    <span class="category">Arts</span>
+                    <h3>Explore Arts Colleges</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔐 Modal Login Popup -->
+    <div id="loginModal">
+        <div id="modalOverlay"></div>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h2>Login</h2>
+            <form method="POST" action="/login">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="link">
+                Don’t have an account? <a href="/register">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔽 College Search Form -->
+    <section class="form-section">
+        <h2>Search Colleges</h2>
+        <form action="/result" method="POST" class="form-container">
+            <label for="marks">Your Marks (%)</label>
+            <input type="number" id="marks" name="marks" placeholder="Enter your percentage" required>
+
+            <label for="city">City</label>
+            <select id="city" name="city" required>
+                <option value="">--Select City--</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Nashik">Nashik</option>
+            </select>
+
+            <label for="stream">Stream</label>
+            <select id="stream" name="stream" required>
+                <option value="">--Select Stream--</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Science">Science</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts">Arts</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- 🔚 Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>CampusChoice</h3>
+                <p>Your trusted platform to discover and compare colleges across India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: support@campuschoice.in</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 CampusChoice. All rights reserved. | Made with ❤️ by Team CampusChoice</p>
+        </div>
+    </footer>
+
+    <!-- 🔧 Scripts -->
+    <script>
+        function showModal() {
+            document.getElementById("loginModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("loginModal").style.display = "none";
+        }
+
+        window.addEventListener("DOMContentLoaded", function () {
+            const isLoggedIn = {{ (username is defined and username) | tojson }};
+            if (!isLoggedIn) {
+                setTimeout(showModal, 5000); // Show popup after 2 sec
+            }
+        });
+    </script>
+
+</body>
+</html>

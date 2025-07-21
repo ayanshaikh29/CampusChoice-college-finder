@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recommended Colleges | CampusChoice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="CampusChoice Logo" class="logo-img" />
+      <div class="logo-text">CampusChoice</div>
+    </div>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Result Section -->
+  <section class="result-section">
+    <div class="result-container">
+      <h1>🎓 Recommended Colleges</h1>
+
+      {% if not colleges %}
+      <div class="no-results">
+        <p>No colleges found.</p>
+        <a href="/" class="back-button">← Back to Search</a>
+      </div>
+      {% else %}
+      <div class="table-card">
+        <table class="college-table">
+          <thead>
+            <tr>
+              <th>College Name</th>
+              <th>City</th>
+              <th>Stream</th>
+              <th>Cutoff (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in colleges %}
+            <tr>
+              <td>{{ row['College Name'] }}</td>
+              <td>{{ row['City'] }}</td>
+              <td>{{ row['Stream'] }}</td>
+              <td>{{ row['Cutoff'] }}%</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div class="center">
+          <a href="/" class="back-button">← Search Again</a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 CampusChoice. Built with 💙 by Team CampusChoice</p>
+  </footer>
+
+</body>
+</html>

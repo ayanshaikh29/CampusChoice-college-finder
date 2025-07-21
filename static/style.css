@@ -1,0 +1,399 @@
+/* Reset & Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* ======================
+   Login Modal Styles
+   ====================== */
+#modalOverlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+}
+#loginModal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    background: #ffffff;
+    padding: 36px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    width: 350px;
+    position: relative;
+    text-align: center;
+}
+.modal-content h2 {
+    color: #2c3e50;
+    margin-bottom: 18px;
+}
+.close-btn {
+    position: absolute;
+    top: 12px; right: 18px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    background: #2980b9;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.modal-content button:hover {
+    background: #1c5980;
+}
+.modal-content .link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+.modal-content .link a {
+    color: #2980b9;
+}
+.modal-content {
+    background: #ffffff;
+    padding: 36px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    width: 350px;
+    position: relative;
+    text-align: center;
+    z-index: 1000;                /* <<< Add this line! */
+}
+
+
+/* 🔵 Header */
+header {
+  background-color: #004aad;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; /* left and right items */
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 20px;          /* 🔸 Increase font size */
+  padding: 10px 40px;
+  max-width: 1200px;        /* 🔸 Limit navbar width */
+  margin:  auto;           /* 🔸 Center navbar on page */
+}
+
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section with Background */
+.hero {
+  background-image: url('/static/bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  border-radius: 0 0 10px 10px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #f1f1f1;
+}
+/* 🔳 Info Blocks Section */
+.info-blocks {
+    padding: 60px 40px;
+    background-color: #f9f9f9;
+}
+.info-blocks .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.info-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 320px;
+}
+.info-card:hover {
+    transform: translateY(-5px);
+}
+.info-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-text {
+    padding: 15px 20px;
+}
+.card-text .category {
+    font-size: 12px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.card-text h3 {
+    margin-top: 5px;
+    font-size: 18px;
+    color: #1e3a8a;
+}
+
+
+/* 📋 Form Section (index.html) */
+.form-section {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.form-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00307a;
+}
+
+/* 📊 Result Page (result.html) */
+.result-section {
+  padding: 60px 20px;
+  background-color: #f5f6fa;
+}
+
+.result-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.result-section h1 {
+  text-align: center;
+  color: #004aad;
+  margin-bottom: 30px;
+}
+
+.table-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
+  padding: 25px;
+  overflow-x: auto;
+}
+
+.college-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.college-table th,
+.college-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.college-table th {
+  background-color: #004aad;
+  color: white;
+}
+
+.college-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.college-table tr:hover {
+  background-color: #eef;
+}
+
+/* ❌ No Result Case */
+.no-results {
+  text-align: center;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.no-results p {
+  color: #555;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.no-result-img {
+  max-width: 180px;
+  opacity: 0.7;
+}
+
+/* Back Button */
+.center {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.back-button {
+  text-decoration: none;
+  padding: 10px 25px;
+  background-color: #004aad;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #00307a;
+}
+
+/* 🔽 Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  color: #777;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .form-section,
+  .result-section {
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .college-table {
+    font-size: 14px;
+  }
+}
