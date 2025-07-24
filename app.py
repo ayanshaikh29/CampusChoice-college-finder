@@ -1,27 +1,46 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-import mysql.connector
+import sqlite3
 import pandas as pd
 import secrets
 import re
+import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = secrets.token_hex(16)  # Secure random secret key
+app.secret_key = secrets.token_hex(16)
 
-# Connect to MySQL
-try:
-    db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Ayan@2615f",
-        database="campuschoice"
-    )
-    cursor = db.cursor()
-except mysql.connector.Error as err:
-    print(f"Database connection failed: {err}")
-    exit(1)
+# =============================
+# SQLite Setup & Reusable DB
+# =============================
+DB_PATH = 'campuschoice.db'
+
+def init_db():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            email TEXT NOT NULL,
+            password TEXT NOT NULL
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_db()
+
+def get_db():
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
 
 def generate_csrf_token():
     return secrets.token_hex(16)
+
+# =========================
+# ROUTES START
+# =========================
 
 @app.route('/')
 def index():
@@ -32,7 +51,7 @@ def register():
     if request.method == 'POST':
         username = request.form.get('username', '').strip()
         email = request.form.get('email', '').strip()
-        password = request.form.get('password', '')
+        password = request.form.get('password', '').strip()
 
         if not username or not password or not email:
             flash('Please fill out the form!', 'danger')
@@ -44,21 +63,27 @@ def register():
             flash('Username must contain only letters and numbers!', 'danger')
             return redirect(url_for('register'))
 
-        cursor.execute("SELECT * FROM users WHERE username = %s OR email = %s", (username, email))
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ? OR email = ?", (username, email))
         account = cursor.fetchone()
+
         if account:
             flash('Account with that username or email already exists!', 'danger')
             return redirect(url_for('register'))
 
         try:
-            cursor.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",
-                           (username, email, password))
-            db.commit()
+            hashed_password = generate_password_hash(password)
+            cursor.execute("INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
+                           (username, email, hashed_password))
+            conn.commit()
             flash('Registered successfully! Please login.', 'success')
             return redirect(url_for('login'))
-        except mysql.connector.Error as err:
-            flash(f'Error: {err}', 'danger')
+        except Exception as e:
+            flash(f'Error: {e}', 'danger')
             return redirect(url_for('register'))
+        finally:
+            conn.close()
 
     return render_template('register.html', csrf_token=generate_csrf_token())
 
@@ -67,9 +92,13 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        cursor.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
-        user = cursor.fetchone()
-        if user:
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT password FROM users WHERE username = ?", (username,))
+        result = cursor.fetchone()
+        conn.close()
+
+        if result and check_password_hash(result[0], password):
             session['username'] = username
             return redirect(url_for('index'))
         else:
@@ -96,8 +125,8 @@ def result():
         city = request.form['city'].strip()
         stream = request.form['stream'].strip()
 
-        # Load and filter college data
-        df = pd.read_csv('data/colleges.csv')
+        csv_path = os.path.join(os.path.dirname(__file__), 'data', 'colleges.csv')
+        df = pd.read_csv(csv_path)
 
         if df.empty:
             flash('College data is empty.', 'warning')
@@ -109,9 +138,7 @@ def result():
             (df['Cutoff'] <= marks)
         ]
 
-        # Convert to list of dicts for rendering
         colleges = filtered_df.to_dict(orient='records')
-
         return render_template('result.html', colleges=colleges, csrf_token=generate_csrf_token())
 
     except ValueError:
@@ -124,5 +151,8 @@ def result():
         flash(f'Error processing request: {e}', 'danger')
         return redirect(url_for('index'))
 
+# =========================
+# Run
+# =========================
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=10000)
