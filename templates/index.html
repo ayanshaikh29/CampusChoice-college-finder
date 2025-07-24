@@ -8,28 +8,27 @@
 </head>
 <body>
 
-    <!-- 🔵 Header -->
-    <header>
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="CampusChoice Logo" class="logo-img">
-            <span class="logo-text">CampusChoice</span>
-        </div>
-        <nav class="nav-links">
-            <a href="/">Home</a>
-            <a href="#">News</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="/login">Login</a>
-        </nav>
-    </header>
+      <header class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="CampusChoice Logo" class="logo-img">
+        <span>CampusChoice</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Colleges</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="/login">🔐</a></li>
 
-    <!-- 🔶 Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Find the Right College for You</h1>
-            <p>Discover the best colleges based on your stream, city, and cutoff percentage.</p>
-        </div>
-    </section>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Find the Best College<br> for Your Future!</h1>
+      <a href="#form-section" class="btn">Explore Now</a>
+    </div>
+  </header>
+
 
     <!-- 🔳 Info Blocks Section -->
     <section class="info-blocks">
@@ -93,7 +92,7 @@
     </div>
 
     <!-- 🔽 College Search Form -->
-    <section class="form-section">
+    <section class="form-section" id="form-section">
         <h2>Search Colleges</h2>
         <form action="/result" method="POST" class="form-container">
             <label for="marks">Your Marks (%)</label>
@@ -122,31 +121,34 @@
     </section>
 
     <!-- 🔚 Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h3>CampusChoice</h3>
-                <p>Your trusted platform to discover and compare colleges across India.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <p>Email: support@campuschoice.in</p>
-                <p>Phone: +91 98765 43210</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 CampusChoice. All rights reserved. | Made with ❤️ by Team CampusChoice</p>
-        </div>
-    </footer>
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-section footer-logo">
+      <h3>🎓 CampusChoice</h3>
+      <p>Your trusted platform to discover and compare colleges across India.</p>
+    </div>
+
+    <div class="footer-section footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">🏠 Home</a></li>
+        <li><a href="#">ℹ️ About</a></li>
+        <li><a href="#">📰 News</a></li>
+        <li><a href="#">📞 Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section footer-contact">
+      <h4>Contact</h4>
+      <p>📧 support@campuschoice.in</p>
+      <p>📱 +91 98765 43210</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 CampusChoice. All rights reserved. | Made with ❤️ by Team CampusChoice</p>
+  </div>
+</footer>
 
     <!-- 🔧 Scripts -->
     <script>

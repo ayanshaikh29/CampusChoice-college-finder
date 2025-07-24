@@ -1,4 +1,10 @@
 /* Reset & Base */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -11,6 +17,8 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+
 /* ======================
    Login Modal Styles
    ====================== */
@@ -94,73 +102,75 @@ a {
     z-index: 1000;                /* <<< Add this line! */
 }
 
-
-/* 🔵 Header */
-header {
-  background-color: #004aad;
-  color: white;
-  padding: 15px 30px;
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between; /* left and right items */
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 20px;          /* 🔸 Increase font size */
-  padding: 10px 40px;
-  max-width: 1200px;        /* 🔸 Limit navbar width */
-  margin:  auto;           /* 🔸 Center navbar on page */
+  padding: 1rem 3rem;
+  background:transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
-
-
-.logo-container {
+.logo {
   display: flex;
   align-items: center;
-}
-
-.logo-img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.logo-text {
-  font-size: 24px;
   font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.logo img {
+  width: 70px;
+  margin-right: 8px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 }
 
 .nav-links a {
-  color: white;
   text-decoration: none;
-  margin-left: 30px;
+  color:white;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #0d47a1;
 }
 
-/* Hero Section with Background */
+.user-icon {
+  font-size: 1.2rem;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Section */
 .hero {
-  background-image: url('/static/bg.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 100px 20px;
-  color: white;
-  text-align: center;
+  height: 100vh;
+  background: url('/static/bg.jpg') center/cover no-repeat;
   position: relative;
-  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
   z-index: 1;
 }
 
@@ -168,18 +178,31 @@ header {
   position: relative;
   z-index: 2;
   max-width: 800px;
-  margin: auto;
 }
 
 .hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 3rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
-.hero p {
-  font-size: 18px;
-  color: #f1f1f1;
+.btn {
+  background-color: #0052cc;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.3s;
 }
+
+.btn:hover {
+  background-color: #003d99;
+}
+
 /* 🔳 Info Blocks Section */
 .info-blocks {
     padding: 60px 40px;
