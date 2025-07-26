@@ -120,7 +120,6 @@ a {
 .logo img {
   width: 70px;
   margin-right: 8px;
-  animation: pulse 2s infinite ease-in-out;
 }
 
 .nav-links {
@@ -465,6 +464,7 @@ footer {
     gap: 10px;
     margin-top: 10px;
     list-style: none;
+   
   }
   .hero h1 {
     font-size: 2rem;
@@ -492,6 +492,7 @@ footer {
   }
   .logo img {
     width: 50px;
+    text-align: left;
   }
   .hero h1 {
     font-size: 1.6rem;
@@ -530,6 +531,7 @@ footer {
     transform: translateX(-50%);
     gap: 12px;
     list-style: none;
+    
   }
   .table-card {
     padding: 10px;
