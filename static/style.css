@@ -136,6 +136,7 @@ a {
   transition: color 0.3s ease;
   position: relative;
   overflow: hidden;
+  list-style: none;
 }
 
 .nav-links a:hover {
@@ -463,6 +464,7 @@ footer {
     transform: none;
     gap: 10px;
     margin-top: 10px;
+    list-style: none;
   }
   .hero h1 {
     font-size: 2rem;
@@ -521,11 +523,13 @@ footer {
     padding: 10px;
   }
   .nav-links {
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     left: 50%;
     transform: translateX(-50%);
     gap: 12px;
+    list-style: none;
   }
   .table-card {
     padding: 10px;
