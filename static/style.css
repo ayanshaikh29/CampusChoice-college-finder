@@ -23,83 +23,76 @@ a {
    Login Modal Styles
    ====================== */
 #modalOverlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.4);
-    z-index: 99;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 99;
 }
 #loginModal {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeIn 0.6s ease;
 }
 .modal-content {
-    background: #ffffff;
-    padding: 36px 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    width: 350px;
-    position: relative;
-    text-align: center;
+  background: #ffffff;
+  padding: 36px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  width: 350px;
+  position: relative;
+  text-align: center;
+  animation: modalPop 0.8s;
+  z-index: 1000;
 }
 .modal-content h2 {
-    color: #2c3e50;
-    margin-bottom: 18px;
+  color: #2c3e50;
+  margin-bottom: 18px;
 }
 .close-btn {
-    position: absolute;
-    top: 12px; right: 18px;
-    color: #888;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+  position: absolute;
+  top: 12px; right: 18px;
+  color: #888;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 .modal-content input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 .modal-content button {
-    width: 100%;
-    padding: 12px;
-    background: #2980b9;
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  background: #2980b9;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 .modal-content button:hover {
-    background: #1c5980;
+  background: #1c5980;
 }
 .modal-content .link {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #555;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
 }
 .modal-content .link a {
-    color: #2980b9;
-}
-.modal-content {
-    background: #ffffff;
-    padding: 36px 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    width: 350px;
-    position: relative;
-    text-align: center;
-    z-index: 1000;                /* <<< Add this line! */
+  color: #2980b9;
 }
 
 .navbar {
@@ -112,6 +105,8 @@ a {
   top: 0;
   width: 100%;
   z-index: 10;
+
+  animation: slideDown 1s ease-in-out;
 }
 
 .logo {
@@ -125,6 +120,7 @@ a {
 .logo img {
   width: 70px;
   margin-right: 8px;
+  animation: pulse 2s infinite ease-in-out;
 }
 
 .nav-links {
@@ -137,7 +133,9 @@ a {
   text-decoration: none;
   color:white;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .nav-links a:hover {
@@ -147,9 +145,11 @@ a {
 .user-icon {
   font-size: 1.2rem;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 /* Hero Section */
 .hero {
   height: 100vh;
@@ -177,6 +177,7 @@ html {
   position: relative;
   z-index: 2;
   max-width: 800px;
+  animation: fadeUp 1.5s ease-out;
 }
 
 .hero h1 {
@@ -195,14 +196,14 @@ html {
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: background 0.3s;
+  transition: transform 0.3s;
 }
 
 .btn:hover {
   background-color: #003d99;
+  animation: bounce 0.4s;
 }
-
-/* 🔳 Info Blocks Section */
+/* Info Block */
 .info-blocks {
     padding: 60px 40px;
     background-color: #f9f9f9;
@@ -246,7 +247,7 @@ html {
 }
 
 
-/* 📋 Form Section (index.html) */
+/* Form Section */
 .form-section {
   max-width: 500px;
   margin: 40px auto;
@@ -254,20 +255,18 @@ html {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 1s ease;
 }
-
 .form-section h2 {
   text-align: center;
   color: #333;
   margin-bottom: 25px;
 }
-
 .form-container label {
   display: block;
   margin-top: 15px;
   font-weight: 500;
 }
-
 .form-container input,
 .form-container select {
   width: 100%;
@@ -276,7 +275,6 @@ html {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
-
 button {
   margin-top: 20px;
   width: 100%;
@@ -288,12 +286,11 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #00307a;
 }
 
-/* 📊 Result Page (result.html) */
+/* Result Page */
 header {
   display: flex;
   justify-content: space-between;
@@ -303,24 +300,20 @@ header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   position: relative;
 }
-
 .logo-group {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .logo-img {
   max-width: 40px;
   height: auto;
 }
-
 .logo-text {
   font-size: 18px;
   font-weight: bold;
   color: white;
 }
-
 .nav-links {
   position: absolute;
   left: 90%;
@@ -328,7 +321,6 @@ header {
   display: flex;
   gap: 25px;
 }
-
 .nav-links a {
   color: white;
   text-decoration: none;
@@ -336,23 +328,18 @@ header {
   font-weight: 500;
   transition: color 0.3s;
 }
-
 .nav-links a:hover {
   color: #aad4ff;
 }
-
-
 .result-container {
   max-width: 1000px;
   margin: auto;
 }
-
 .result-section h1 {
   text-align: center;
   color: #004aad;
   margin-bottom: 30px;
 }
-
 .table-card {
   background-color: #fff;
   border-radius: 12px;
@@ -360,34 +347,29 @@ header {
   padding: 25px;
   overflow-x: auto;
 }
-
 .college-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
   font-size: 16px;
 }
-
 .college-table th,
 .college-table td {
   padding: 12px 15px;
   text-align: center;
 }
-
 .college-table th {
   background-color: #004aad;
   color: white;
 }
-
 .college-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-
 .college-table tr:hover {
   background-color: #eef;
 }
 
-/* ❌ No Result Case */
+/* No Result */
 .no-results {
   text-align: center;
   background-color: white;
@@ -395,13 +377,11 @@ header {
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
 }
-
 .no-results p {
   color: #555;
   font-size: 18px;
   margin: 20px 0;
 }
-
 .no-result-img {
   max-width: 180px;
   opacity: 0.7;
@@ -412,7 +392,6 @@ header {
   text-align: center;
   margin-top: 25px;
 }
-
 .back-button {
   text-decoration: none;
   padding: 10px 25px;
@@ -422,12 +401,11 @@ header {
   font-weight: bold;
   transition: background-color 0.3s;
 }
-
 .back-button:hover {
   background-color: #00307a;
 }
 
-/* 🔽 Footer */
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
@@ -435,30 +413,121 @@ footer {
   color: #777;
   font-size: 14px;
   margin-top: 60px;
+  animation: fadeIn 1.5s ease-in;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUpCard {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { transform: translateY(-60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+@keyframes bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.08); }
+  60% { transform: scale(0.98); }
+  100% { transform: scale(1.03); }
+}
+@keyframes modalPop {
+  0% { opacity: 0; transform: scale(0.92) translateY(32px); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
 
-/* 📱 Responsive */
-@media (max-width: 600px) {
-  header {
+/* ✅ Responsive for Tablet and Mobile */
+@media screen and (max-width: 992px) {
+  .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    padding: 1rem;
+    text-align: center;
   }
-
   .nav-links {
-    margin-top: 10px;
+    flex-direction: column;
+    position: static;
+    transform: none;
+    gap: 1rem;
+    margin-top: 1rem;
   }
-
-  .form-section,
-  .result-section {
+  .hero h1 {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+  .info-blocks .row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info-card {
+    width: 90%;
+  }
+  .form-section {
+    margin: 20px 10px;
     padding: 20px;
   }
-
-  .hero h1 {
-    font-size: 22px;
+  .modal-content {
+    width: 90%;
+    padding: 24px 20px;
   }
-
-  .college-table {
+}
+@media screen and (max-width: 600px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  .logo img {
+    width: 50px;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+  .nav-links a {
     font-size: 14px;
+  }
+  .card-text h3 {
+    font-size: 16px;
+  }
+  .form-section h2 {
+    font-size: 20px;
+  }
+  .college-table th,
+  .college-table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+  .logo-text {
+    font-size: 16px;
+  }
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 12px;
+  }
+  .table-card {
+    padding: 10px;
   }
 }
