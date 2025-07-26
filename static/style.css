@@ -454,15 +454,15 @@ footer {
 @media screen and (max-width: 992px) {
   .navbar {
     flex-direction: column;
-    padding: 1rem;
+    padding: 10px;
     text-align: center;
   }
   .nav-links {
     flex-direction: column;
     position: static;
     transform: none;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 10px;
+    margin-top: 10px;
   }
   .hero h1 {
     font-size: 2rem;
