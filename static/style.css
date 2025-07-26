@@ -459,7 +459,7 @@ footer {
     text-align: center;
   }
   .nav-links {
-    flex-direction: column;
+    flex-direction: row;
     position: static;
     transform: none;
     gap: 10px;
@@ -524,7 +524,7 @@ footer {
   }
   .nav-links {
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     left: 50%;
     transform: translateX(-50%);
