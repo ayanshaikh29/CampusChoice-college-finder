@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - CampusChoice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Hero Section with Navigation and Background -->
+  <section class="relative bg-cover bg-center bg-no-repeat h-[550px]" style="background-image: url('/static/About.jpg');" data-aos="fade-in">
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+   <!-- Navigation inside Hero -->
+<div class="relative z-10 max-w-7xl mx-auto px-6 py-6 flex justify-between items-center text-white">
+  
+  <!-- Logo + Brand Name -->
+  <div class="flex items-center space-x-3">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="CampusChoice Logo" class="h-10 w-10 object-contain">
+    <span class="text-2xl font-bold">CampusChoice</span>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="space-x-6 text-sm md:text-base font-medium">
+    <a href="/" class="hover:text-300 transition">Home</a>
+    <a href="/about" class="text-300 font-semibold">About</a>
+    <a href="/results" class="hover:text-300 transition">Results</a>
+    <a href="/contact" class="hover:text-300 transition">Contact</a>
+  </nav>
+</div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 flex flex-col justify-center items-center text-center h-[calc(100%-80px)] text-white px-4">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Welcome to CampusChoice</h1>
+      <p class="text-lg md:text-xl max-w-2xl">
+        Your smart assistant in discovering the best colleges tailored to your goals. 
+        Find the right path with clarity, data, and smart tools.
+      </p>
+    </div>
+  </section>
+
+ <!-- Clean, Lighter & Slimmer Quick Stats -->
+<section class="bg-gray-100 py-12" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+    <div>
+      <h2 class="text-4xl font-semibold text-blue-500">10K+</h2>
+      <p class="mt-2 text-gray-600 text-base">Students Helped</p>
+    </div>
+    <div>
+      <h2 class="text-4xl font-semibold text-blue-500">500+</h2>
+      <p class="mt-2 text-gray-600 text-base">Colleges Listed</p>
+    </div>
+    <div>
+      <h2 class="text-4xl font-semibold text-blue-500">95%</h2>
+      <p class="mt-2 text-gray-600 text-base">Accuracy Rate</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Features -->
+  <section class="py-16 bg-white" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10">Features</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Personalized Search</h3>
+          <p>Filter colleges based on your preferences – course, location, fees, rankings, and more.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Data-Driven Results</h3>
+          <p>Powered by real-time data and reviews to give you the most relevant matches.</p>
+        </div>
+        <div class="bg-gray-100 p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">User-Friendly Interface</h3>
+          <p>Clean, intuitive design that helps you navigate easily and decide faster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strengths -->
+  <section class="py-16 bg-gray-100" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10">Our Strengths</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Accurate Info</h3>
+          <p>We provide verified and latest information from official and trusted sources.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Community Support</h3>
+          <p>Join forums, ask questions, and learn from real experiences of students and alumni.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">AI-Powered Insights</h3>
+          <p>Advanced algorithms recommend ideal colleges based on your profile and trends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-16 bg-white" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center text-600 mb-12">Meet Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+        <div class="bg-gray-100 p-6 rounded-lg text-center shadow">
+          <img src="/static/Ayan.jpeg" alt="Shaikh Ayan" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold">Shaikh Ayan</h3>
+          <p class="text-gray-600">Front-End Developer</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg text-center shadow">
+          <img src="/static/Samyak.jpeg" alt="Ughade Samyak" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold">Ughade Samyak</h3>
+          <p class="text-gray-600">Back-End Developer</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg text-center shadow">
+          <img src="/static/Vedant.jpeg" alt="Sonavane Vedant" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold">Sonavane Vedant</h3>
+          <p class="text-gray-600">Data Analyst</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg text-center shadow">
+          <img src="/static/Parth.jpeg" alt="Sawale Parth" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+          <h3 class="text-xl font-semibold">Sawale Parth</h3>
+          <p class="text-gray-600">UI/UX Designer</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>
