@@ -154,6 +154,46 @@ def result():
     except Exception as e:
         flash(f'Error processing request: {e}', 'danger')
         return redirect(url_for('index'))
+        
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if username == 'admin' and password == 'admin123':
+            session['admin_logged_in'] = True
+            return redirect('/admin/users')
+        else:
+            return "❌ Invalid credentials. Try again."
+    return '''
+        <h2>Admin Login</h2>
+        <form method="post">
+            Username: <input name="username"><br>
+            Password: <input name="password" type="password"><br>
+            <button type="submit">Login</button>
+        </form>
+    '''
+@app.route('/admin/users')
+def admin_users():
+    if not session.get('admin_logged_in'):
+        return redirect('/admin/login')
+    
+    conn = sqlite3.connect('users.db')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM users")
+    users = cur.fetchall()
+    conn.close()
+    
+    html = "<h2>Registered Users</h2><table border='1'><tr><th>ID</th><th>Name</th><th>Email</th><th>Password</th></tr>"
+    for user in users:
+        html += f"<tr><td>{user[0]}</td><td>{user[1]}</td><td>{user[2]}</td><td>{user[3]}</td></tr>"
+    html += "</table><br><a href='/admin/logout'>Logout</a>"
+    return html
+    
+@app.route('/admin/logout')
+def admin_logout():
+    session.pop('admin_logged_in', None)
+    return redirect('/admin/login')
 
 # =========================
 # Run
