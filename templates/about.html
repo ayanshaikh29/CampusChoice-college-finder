@@ -10,8 +10,8 @@
 <body class="bg-gray-50 text-gray-800">
 
 <!-- Hero Section with Navigation and Background -->
-  <section class="relative bg-cover bg-center bg-no-repeat h-[550px]" style="background-image: url('/static/About.jpg');" data-aos="fade-in">
-    <!-- Dark Overlay -->
+  <section class="relative bg-cover bg-center bg-no-repeat h-[550px]" style="background-image: url('{{ url_for('static', filename='bg.jpg') }}');" data-aos="fade-in">
+  <!-- Dark Overlay -->
     <div class="absolute inset-0 bg-black bg-opacity-60"></div>
 
    <!-- Navigation inside Hero -->
@@ -27,8 +27,8 @@
   <nav class="space-x-6 text-sm md:text-base font-medium">
     <a href="/" class="hover:text-300 transition">Home</a>
     <a href="/about" class="text-300 font-semibold">About</a>
-    <a href="/results" class="hover:text-300 transition">Results</a>
-    <a href="/contact" class="hover:text-300 transition">Contact</a>
+    <a href="/news" class="hover:text-300 transition">News</a>
+    <a href="/login" class="hover:text-300 transition">Login</a>
   </nav>
 </div>
 
