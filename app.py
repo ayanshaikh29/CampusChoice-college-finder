@@ -106,6 +106,10 @@ def login():
             return redirect(url_for('login'))
     return render_template('login.html', csrf_token=generate_csrf_token())
 
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
 @app.route('/logout')
 def logout():
     session.clear()
