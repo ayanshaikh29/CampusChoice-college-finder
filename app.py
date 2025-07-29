@@ -178,7 +178,7 @@ def admin_users():
     if not session.get('admin_logged_in'):
         return redirect('/admin/login')
     
-    conn = sqlite3.connect('users.db')
+    conn = sqlite3.connect('campuschoice.db')
     cur = conn.cursor()
     cur.execute("SELECT * FROM users")
     users = cur.fetchall()
